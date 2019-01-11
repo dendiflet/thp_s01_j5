@@ -28,7 +28,7 @@ def contient0			#on a essayer plein de truc avec ça mais c la merde
 end
 
 def q2
-	a = array.select {|i| i =~ /[0123456789]/ }
+	a = array.select {|i| i =~ /[0123456789]/ }   #fonctionne aussi avec    =~ /[0-9]/
 	print "#{a} \n"
 	puts a.class
 	puts a.length
@@ -41,6 +41,22 @@ def contientaude (x)			#on a essayer plein de truc avec ça mais c la merde
 
 end
 #contientaude (array)
+
+def majapresarrowbase
+	.index(1)			#permet de regarder la 2eme lettre
+end
+
+
+.char 
+
+
+
+
+
+
+
+
+
 
 
 
