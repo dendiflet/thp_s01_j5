@@ -46,10 +46,12 @@ def contientaude (arrayjournalistes)			#on a essayer plein de truc avec ça mais
 end
 #contientaude (array)
 
-def ordrealpha (x)
-	$z = x.sort  #{|anythinghere| a <=> b puts "Ascending #{anythinghere}" }
+def rangementordrealpha (x)
+	x.sort!  #{|anythinghere| a <=> b puts "Ascending #{anythinghere}" }
+	puts x
 end
-#ordrealpha (arrayjournalistes)
+#rangementordrealpha(arrayjournalistes)
+
 
 
 def majapresarrowbase (arrayjournalistes)
@@ -60,22 +62,46 @@ end
 #majapresarrowbase (arrayjournalistes)
 
 
+def majusculefirstletter
+	arrayjournalistes.map! {|i| i = i[1..-1]} 		#enleve le @
+	z = arrayjournalistes.select! { |x| x[0] == x.capitalize[0] && x[0] !~ /[0-9]/} #compare la lettre avec la lettre maj et que ce ne soit pas un chiffre
+	puts z.length
 
-#pour comparer la majuscule
-#tech 1
-#je créer deux array avec seulement la 1ere lettre, une que je downsize et apres je compte les difference
+end
+
+def testmaj
+	arrayjournalistes.map! {|i| i = i[1..-1]}
+	z = arrayjournalistes.select! { |x| x =~ /[A-Z]/}
+	puts z.length
+end
+
+def underscorecount
+	z = arrayjournalistes.select! { |x| x =~ /[_]/}
+	puts z.length
+	puts "la je viens d'afficher la valeur d'un array qui contient tout les pseudo contenant un underscore"
+	puts "mais imaginon que certain pseudo en contiennent deux...."
+	z = 0 	#reset de z
+	arrayjournalistes.each {|i| a += i.count('_')}
+	puts z
+end
+
+def rangementparlongeur
+	arrayjournalistes.sort_by! {|x| x.length}
+	puts arrayjournalistes
+end
+
+def selec50premier (arrayjournalistes)
+	arrayjournalistes.sort_by! {|x| x.length}
+	arrayjournalistes.slice!(50..-1)
+	puts arrayjournalistes.length
+	print arrayjournalistes
+	puts "\n"
+end
 
 
-seeall(arrayjournalistes)
-
-
-
-
-#puts arrayjournalistes
-#puts $z
-
-
-
+def qpositionepenser (arrayjournalistes)
+	puts arrayjournalistes.index("@epenser")
+end
 
 
 

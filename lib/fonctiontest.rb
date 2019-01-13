@@ -1,9 +1,9 @@
-array = ["premier azerty", "deuxième 123456", "troisième AZERTY", "4eme"]
-string = "azerty1234"
+array = ["premier azerty", "Deuxième 123456", "Troisième AZERTY", "4eme"]
+string = "azertya1234"
 $a = []
 z = "\n"
 new_array = []
-
+q = 0
 def testsort (array)
 	array.sort
 	print array
@@ -57,3 +57,13 @@ def encoretestclice
 	array.each { |i| new_array << i.slice!(0)}
 	puts array
 end
+
+
+class String
+  def initial
+    self[0,1]
+  end
+end
+
+array.each {|i| q += i.count('e')}
+puts q
