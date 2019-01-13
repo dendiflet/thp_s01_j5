@@ -63,12 +63,13 @@ end
 
 def maj1stletter(arrayjournalistes)
 	k = arrayjournalistes.map {|i| i = i[1..-1]} 		#enleve le @
-	g = k.select { |x| x[0] == x.capitalize[0] && x[0] !~ /[0-9]/} #compare la lettre avec la lettre maj et que ce ne soit pas un chiffre
+	g = arrayjournalistes.select { |x| x[1] == x.capitalize[1] && x[1] !~ /[0-9]/} #compare la lettre avec la lettre maj et que ce ne soit pas un chiffre
 	puts "il y #{g.length} pseudo qui commencent avec une maj (apres le @)"
+	puts"\n la c'est des test pour la fonction du dessus dans laquelle le regexp fontionne pas"
 	h = k.select { |x| x[0] == x.capitalize[0] }
 	f = k.select { |x| x[0] !=~ /[0-9]/}				#ca fontionne pas, ca prend la totalité de l'array
 	puts " maj et nb #{h.length}"
-	puts "que les nb #{f.length}"
+	puts "que le regexp exclusion des chiffres #{f.length}"
 
 end
 
@@ -82,6 +83,7 @@ end
 
 def underscorecount(arrayjournalistes)
 	g = arrayjournalistes.select { |x| x =~ /[_]/}
+	#g = arrayjournalistes.find_all{|x| x.chars.include? ("_")}
 	puts "il y a #{g.length} qui contiennent des underscore dans l'array de journalistes"
 	z = 0 	#reset de z
 	arrayjournalistes.each {|i| z += i.count('_')}
