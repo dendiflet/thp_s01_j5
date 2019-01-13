@@ -14,6 +14,7 @@ valeur_cypto = ["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26"
 # Les devises, dont le cours est inférieur à 6000 (Indice : on peut comparer en valeur 2 integers mais pas 2 strings. Pense bien à enlever le $ et éventuellement utiliser .to_i pour faire cet exercice).
 # La devise la plus chère parmi celles dont le cours est inférieur à 6000.
 
+#réponses 
 # Q1.Project-X
 # 46183.2
 # Q2.Sprouts
@@ -30,12 +31,12 @@ valeur_cypto = ["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26"
 	myhash = {}
 	nom_crypto.zip(valeur_cypto) {|a,b| myhash[a] = b }
 #verif
-#puts myhash["Bitcoin"]
+puts myhash["Bitcoin"]
 
 newhash =  {}
 myhash.each {|key, value| newhash[key.downcase] = value[1..-1].to_f } 	#hop on retire le $ et on passe en flotant
 puts newhash["bitcoin"]  									#verification
-puts "il y a #{nom_crypto.length} cryptodans ce hash !"
+puts "il y a #{nom_crypto.length} cryptomonnaies dans ce hash !"
 
 
 # => Q1
@@ -45,7 +46,16 @@ puts "la crypto qui a la plus grosse valeur est #{q11} avec #{newhash[q11]} de v
 # => q2
 q21 = newhash.key(newhash.values.min) #il va retourner qu'une des deux keys.......et sans le .to_f il prenais pas le "e-07"
 puts "la crypto qui a la plus petite valeur est #{q21} avec #{newhash[q21]} de valeur !"
+puts "il manque l'autre crypto qui est ex-aeco avec celle-ci"
 
 ###recherche par valeur
 q31 = newhash.select{ |key| key.include?("coin") } #j'ai downsize les key et ca me passe de 191 a 458
 puts q31.length
+
+#h.reject {|k,v| v > 100}  #=> {"a" => 100}
+q41 = newhash.reject {|k,v| v > 6000}  #=> {"a" => 100}
+puts "j'allais pas afficher le hash mais il y en a #{q41.length} qui sont supérieur a 6000$ ! "
+
+
+q51 = q41.key(q41.values.max) #
+puts "la crypto qui a la plus grosse valeur en dessous de 6000$ est le #{q51} avec #{q41[q51]} de valeur !"
