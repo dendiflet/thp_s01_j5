@@ -4,7 +4,6 @@ def retourligne
 	puts "\n"
 end
 
-
 # Exo
 # Combien y a-t-il de journalistes dans ce array ?
 # Combien d'handle contiennent un numéro ?
@@ -112,8 +111,7 @@ def positionepenser(arrayjournalistes)
 	puts arrayjournalistes.index("@epenser")
 end
 
-def perform
-setreset
+def perform (arrayjournalistes)
 nbjournalistes(arrayjournalistes)
 contiennumero(arrayjournalistes)
 contienaude(arrayjournalistes)
@@ -124,7 +122,6 @@ ordrealpha(arrayjournalistes)
 orderbylength(arrayjournalistes)
 select50stfirstshorter(arrayjournalistes)
 positionepenser(arrayjournalistes)
-
 end
 
 
