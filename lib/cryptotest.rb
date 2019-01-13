@@ -14,38 +14,41 @@ valeur_cypto = ["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26"
 # Les devises, dont le cours est inférieur à 6000 (Indice : on peut comparer en valeur 2 integers mais pas 2 strings. Pense bien à enlever le $ et éventuellement utiliser .to_i pour faire cet exercice).
 # La devise la plus chère parmi celles dont le cours est inférieur à 6000.
 
-# Q1.Project-X
-# 46183.2
-# Q2.Sprouts
-# 4.5e-07
-# EmberCoin
-# 4.5e-07
-# Q3.
-# 458
-# Q5.
-# Russian Miner...
-# 4490.72
 
-# => fusion
-	myhash = {}
-	nom_crypto.zip(valeur_cypto) {|a,b| myhash[a] = b }
-#verif
-#puts myhash["Bitcoin"]
-
-newhash =  {}
-myhash.each {|key, value| newhash[key.downcase] = value[1..-1].to_f } 	#hop on retire le $ et on passe en flotant
-puts newhash["bitcoin"]  									#verification
-puts "il y a #{nom_crypto.length} cryptodans ce hash !"
+#fusion
+a = {}
+myhash = {}
+nom_crypto.zip(valeur_cypto) {|a,b| myhash[a] = b }
 
 
-# => Q1
-q11 = newhash.key(newhash.values.max) #
-puts "la crypto qui a la plus grosse valeur est #{q11} avec #{newhash[q11]} de valeur !"
+#=>key(s) for the largest value: ["y", "z"]
 
-# => q2
-q21 = newhash.key(newhash.values.min) #il va retourner qu'une des deux keys.......et sans le .to_f il prenais pas le "e-07"
-puts "la crypto qui a la plus petite valeur est #{q21} avec #{newhash[q21]} de valeur !"
+#=>key(s) for the largest value: ["y", "z"]
 
-###recherche par valeur
-q31 = newhash.select{ |key| key.include?("coin") } #j'ai downsize les key et ca me passe de 191 a 458
-puts q31.length
+
+#myhash.each_key { |key| a = key.scan(coin)  }
+
+h = {"n" => 100, "m" => 100, "y" => 300, "d" => 200, "a" => 0, "z" => 300}          
+max = myhash.values.max
+output_hash = Hash[myhash.select { |k, v| v == max}]
+puts "key(s) for the largest value: #{output_hash.keys}"
+
+#=>key(s) for the largest value: ["y", "z"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

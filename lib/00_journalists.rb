@@ -62,9 +62,14 @@ end
 
 
 def maj1stletter(arrayjournalistes)
-	g = arrayjournalistes.map {|i| i = i[1..-1]} 		#enleve le @
-	g = g.select { |x| x[0] == x.capitalize[0] && x[0] !~ /[0-9]/} #compare la lettre avec la lettre maj et que ce ne soit pas un chiffre
+	k = arrayjournalistes.map {|i| i = i[1..-1]} 		#enleve le @
+	g = k.select { |x| x[0] == x.capitalize[0] && x[0] !~ /[0-9]/} #compare la lettre avec la lettre maj et que ce ne soit pas un chiffre
 	puts "il y #{g.length} pseudo qui commencent avec une maj (apres le @)"
+	h = k.select { |x| x[0] == x.capitalize[0] }
+	f = k.select { |x| x[0] !=~ /[0-9]/}				#ca fontionne pas, ca prend la totalité de l'array
+	puts " maj et nb #{h.length}"
+	puts "que les nb #{f.length}"
+
 end
 
 def contienmaj(arrayjournalistes)
