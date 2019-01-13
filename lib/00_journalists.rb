@@ -26,7 +26,7 @@ end
 #putsallvalues(arrayjournalistes)
 
 def nbjournalistes(arrayjournalistes)
-	puts arrayjournalistes.length.
+	puts "il y a #{arrayjournalistes.length} journalistes dans cet array"
 end
 #longeurarray(arrayjournalistes)
 
@@ -37,9 +37,9 @@ end
 
 def contiennumero(arrayjournalistes)
 	g = arrayjournalistes.select { |i| i =~ /[0123456789]/ }   #"regex" ; fonctionne aussi    avec  =~ /[0-9]/
-	print "#{g} \n"
-	puts g.class
-	puts g.length
+	#print "#{g} \n"
+	#puts g.class
+	puts "il y a #{g.length} pseudo qui contiennt des numeros"
 
 end
 #q2(arrayjournalistes)
@@ -64,46 +64,46 @@ end
 def maj1stletter(arrayjournalistes)
 	g = arrayjournalistes.map {|i| i = i[1..-1]} 		#enleve le @
 	g = g.select { |x| x[0] == x.capitalize[0] && x[0] !~ /[0-9]/} #compare la lettre avec la lettre maj et que ce ne soit pas un chiffre
-	puts g.length
-
+	puts "il y #{g.length} pseudo qui commencent avec une maj (apres le @)"
 end
 
 def contienmaj(arrayjournalistes)
 	g = arrayjournalistes.map {|i| i = i[1..-1]}
 	g = arrayjournalistes.select { |x| x =~ /[A-Z]/}
-	puts g.length
+	puts " il y a #{g.length} pseudo qui contiennent une ou des majuscules"
+	# g = g.uniq
+	# puts " il y a #{g.length} pseudo qui contiennent une ou des majuscules"
 end
 
 def underscorecount(arrayjournalistes)
 	g = arrayjournalistes.select { |x| x =~ /[_]/}
-	puts g.length
-	puts "la je viens d'afficher le nombres de valeurs d'un array qui contienent tout les pseudos contenant un underscore"
-	puts "mais imaginon que certain pseudo en contiennent deux...."
+	puts "il y a #{g.length} qui contiennent des underscore dans l'array de journalistes"
 	z = 0 	#reset de z
 	arrayjournalistes.each {|i| z += i.count('_')}
-	puts z
+	puts "mais imaginon que certain pseudo en contiennent deux.... il y en a donc #{z} au total !"
+
 end
 
 def ordrealpha(arrayjournalistes)
 	g = arrayjournalistes.sort  #{|anythinghere| a <=> b puts "Ascending #{anythinghere}" }
-	print g
-	retourligne
+	puts "classement par ordre alpha"
+	#print g
 end
 #rangementordrealpha(arrayjournalistes)
 
 
 def orderbylength(arrayjournalistes)
 	g = arrayjournalistes.sort_by {|x| x.length}
-	print g
-	retourligne
+	puts "classement par longeur"
+	#print g
 end
 
-def selec50stshorter(arrayjournalistes)
+def select50stshorter(arrayjournalistes)
 	g = arrayjournalistes.sort_by {|x| x.length}
 	g = g.slice(0...50)
-	puts g.length
-	print g
-	retourligne
+	#puts g.length
+	#print g
+	puts "je les affiche pas mais il sont la les 50"
 end
 
 
@@ -111,17 +111,18 @@ def positionepenser(arrayjournalistes)
 	puts arrayjournalistes.index("@epenser")
 end
 
-def perform (arrayjournalistes)
-nbjournalistes(arrayjournalistes)
-contiennumero(arrayjournalistes)
-contienaude(arrayjournalistes)
-maj1stletter(arrayjournalistes)
-contienmaj(arrayjournalistes)
-underscorecount (arrayjournalistes)
-ordrealpha(arrayjournalistes)
-orderbylength(arrayjournalistes)
-select50stfirstshorter(arrayjournalistes)
-positionepenser(arrayjournalistes)
+def perform(arrayjournalistes)
+	nbjournalistes(arrayjournalistes)
+	contiennumero(arrayjournalistes)
+	contienaude(arrayjournalistes)
+	maj1stletter(arrayjournalistes)
+	contienmaj(arrayjournalistes)
+	underscorecount (arrayjournalistes)
+	ordrealpha(arrayjournalistes)
+	orderbylength(arrayjournalistes)
+	select50stshorter(arrayjournalistes)
+	positionepenser(arrayjournalistes)
 end
 
+perform (arrayjournalistes)
 
